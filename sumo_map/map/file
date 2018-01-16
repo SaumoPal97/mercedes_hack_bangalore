@@ -1,0 +1,5 @@
+netconvert --osm-files map.osm -o map.net.xml
+polyconvert --net-file map.net.xml --osm-files map.osm --type-file typemap.xml -o map.poly.xml
+python /home/saumo/sumo-0.32.0/tools/randomTrips.py -n map.net.xml -e 100 -l
+python /home/saumo/sumo-0.32.0/tools/randomTrips.py -n map.net.xml -r map.rou.xml -e 100 -l
+sumo-gui map.sumo.cfg
